@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  /*background: #2a4e68;*/
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+    url("../images/blue_top.jpg");
+  color: #253238;
+  
+}
+
+
+
+/* Forces the image to behave and stay inside the box edges */
+.project-img {
+  width: 100%;       /* Stretches the image to fill the card width */
+  height: 500px;     /* Sets a rigid block height */
+  object-fit:fill; /* Crops the image perfectly without squishing or stretching it */
+  display: block;    /* Removes sneaky browser gaps at the bottom of images */
+  /*border-bottom: 2px solid #1f2937; /* Line dividing picture from text */
+}
+
+/* Base Container Layout */
+.tab-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+
+/* Hide the radio checkboxes completely */
+input[type="radio"] {
+  display: none;
+}
+
+/* --- ADJUSTED: Seamless Square Block Navigation --- */
+.tab-nav {
+  display: flex;
+  gap: 0; /* REMOVED: No space between items for a solid row */
+}
+
+.tab-label {
+  flex: 1; 
+  text-align: center; 
+  padding: 1.25rem 1.5rem; /* Slightly taller for boxier look */
+  cursor: pointer;
+  font-weight: 600;
+  color: #e5e6ea; /* Muted gray for inactive tabs */
+  background: #0d1219; /* Dark solid gray background */
+  border: none; /* REMOVED: Clean geometric edges instead of borders */
+  border-radius: 0; /* REMOVED: Completely square corners */
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tab-label:hover {
+  background: #374151; /* Dark hover highlight */
+  color: #f3f4f6;
+}
+
+/* --- ADJUSTED: Matching Boxed Content Panel --- */
+.tab-panels {
+  background: #ffffff;
+  padding: 2.5rem;
+  border: 4px solid #1f2937; /* Thick border matching the navigation square color */
+  border-radius: 0; /* REMOVED: Sharp edges */
+}
+
+.tab-panel {
+  display: none;
+}
+
+/* --- THE LOGIC COMPONENT --- */
+
+/* Active State: Bold, solid color flip for a clean UI block */
+#tab1:checked ~ .tab-nav .tab-label[for="tab1"],
+#tab2:checked ~ .tab-nav .tab-label[for="tab2"],
+#tab3:checked ~ .tab-nav .tab-label[for="tab3"] {
+  background: #3b82f6; /* High-contrast active block color */
+  color: #ffffff; /* Crisp white text */
+}
+
+/* Reveal the corresponding content panel */
+#tab1:checked ~ .tab-panels #content1,
+#tab2:checked ~ .tab-panels #content2,
+#tab3:checked ~ .tab-panels #content3 {
+  display: block;
+}
+
+.flex-container {
+  display: flex; /* Activates flexbox */
+  gap: 20px;     /* Adds space between the columns */
+}
+
+.column {
+  flex: 1;       /* Forces columns to take up equal space */
+  padding: 10px; 
+}
+
+
+header {
+  /* background: linear-gradient(120deg, #04AA6D, #058457); */
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+    url("../images/beach.jpg");
+  background-size: cover;
+  background-position: center;
+}
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+section {
+  background: #fefefe;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+section h2 {
+  margin-top: 0;
+  color: #144849;
+}
+footer {
+  padding: 24px;
+  text-align: center;
+  background: #0d1219;
+  font-size: 0.9rem;
+}
